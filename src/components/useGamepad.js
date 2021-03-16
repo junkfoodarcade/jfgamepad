@@ -12,5 +12,5 @@ export const useGamepad = () => {
             cancelAnimationFrame(getUpdates);
         }
     },[])
-    return gamepads||[];
+    return gamepads;
 }
