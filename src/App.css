@@ -1,3 +1,6 @@
+body {
+  background-color: #eee;
+}
 .App {overflow:hidden;}
 
 .hidden {
@@ -15,8 +18,10 @@ main {
 }
 
 p {
-  padding:1rem;
-  background-color: #eee;
+  padding:2rem;
+  background-color: #ddd;
+  font-size:2rem;
+  border-radius: 10px;
 }
 
 .controller {
