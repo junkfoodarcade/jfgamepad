@@ -1,6 +1,9 @@
+.App {overflow:hidden;}
+
 .hidden {
   display:none;
 }
+
 
 main {
   display:flex;
