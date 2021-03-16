@@ -13,11 +13,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <main>
-        <Show when={!!isConnected}>
+      <Show when={!isConnected}>
+        <p>Press a button to begin</p>
+      </Show>
+      <Show when={!!isConnected}>
+        <main>
           <Snackbox gamepad={gp} />
-        </Show>
-      </main>
+        </main>
+      </Show>
     </div>
   )
 }
