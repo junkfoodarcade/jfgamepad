@@ -146,15 +146,15 @@ p {
 }
 
 #c0b12 {
-  top:24.5%;
-  left:28.5%;
-}
-#c0b13 {
   top:65%;
   left:50%;
   transform:translateX(-50%);
   height: 65px;
   width: 65px;
+}
+#c0b13 {
+  top:24.5%;
+  left:28.5%;
 }
 #c0b14 {
   top:19%;
