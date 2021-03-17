@@ -35,8 +35,6 @@ p {
   border: 2px solid black;
   border-top-color: #666;
   border-left-color: #666;
-  background: rebeccapurple;
-  background: linear-gradient(90deg, rgba(169,42,191,1) 0%, rgba(133,23,152,1) 100%);
 }
 
 .snackbox {
@@ -327,4 +325,16 @@ p {
   border-top-right-radius: 0;
   height: calc(var(--button-size) * .3);
   width: calc(var(--button-size) * .5);
+}
+
+.color-selector {
+  position:absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+
+}
+.color-selector input {
+  min-width:8rem;
+  min-height:6rem;
+  font-size: 2rem;
 }
