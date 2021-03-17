@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorSelector Component should match snapshot 1`] = `
+<div>
+  <div
+    class="color-selector"
+    id="test"
+  >
+    <label
+      for="test-input"
+    >
+      Label
+    </label>
+    <input
+      id="test-input"
+      type="color"
+      value="#ff0000"
+    />
+  </div>
+</div>
+`;
