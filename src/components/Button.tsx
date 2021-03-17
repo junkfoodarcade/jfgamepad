@@ -6,12 +6,14 @@ type ButtonProps = {
     className?: string;
     pressed?: boolean;
     name: string;
+    pressedColor?: string;
 };
 
-export const Button = ({index,controllerIndex,className='',pressed=false,name}:ButtonProps) =>{
+export const Button = ({index,controllerIndex,className='',pressed=false,name,pressedColor='#ff0000'}:ButtonProps) =>{
     const classes = `button${className?' '+className:''}${pressed?' pressed':''}`;
+    const bgstyle= pressed ? {backgroundColor:pressedColor} :{};
     const id=`c${controllerIndex}b${index}`
     return (
-        <span className={classes} id={id}>{name}</span>
+        <span className={classes} id={id} style={bgstyle}>{name}</span>
     )
 };

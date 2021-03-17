@@ -1,5 +1,6 @@
 body {
   background-color: #eee;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .App {overflow:hidden;}
 
@@ -57,10 +58,10 @@ p {
   align-items:center;
   transform:rotate(13deg);
 }
-.rivet.tl { top: var(--percent-vert); left:var(--percent-horz);}
-.rivet.tr { top: var(--percent-vert); right: var(--percent-horz);}
-.rivet.bl { bottom: var(--percent-vert); left: var(--percent-horz);}
-.rivet.br { bottom: var(--percent-vert); right: var(--percent-horz);}
+.rivet.tl { top: var(--percent-vert); left:var(--percent-horz);  transform:rotate(13deg);}
+.rivet.tr { top: var(--percent-vert); right: var(--percent-horz);  transform:rotate(67deg);}
+.rivet.bl { bottom: var(--percent-vert); left: var(--percent-horz);  transform:rotate(32deg);}
+.rivet.br { bottom: var(--percent-vert); right: var(--percent-horz);  }
 
 
 .button {
@@ -76,7 +77,7 @@ p {
   box-shadow: 0 0 0 1px #666, 0 0 0 5px #333;
 }
 .pressed {
-  background-color: rgb(230, 6, 6);
+  background-color: #ff0000;
   color: #ccc;
 }
 
@@ -326,10 +327,20 @@ p {
   height: calc(var(--button-size) * .3);
   width: calc(var(--button-size) * .5);
 }
-
 .color-selector {
+  display:flex;
+  flex-direction: column;
+}
+
+#bg {
   position:absolute;
   top: 2.5rem;
+  right: 2.5rem;
+
+}
+#pressed {
+  position:absolute;
+  top: 15.5rem;
   right: 2.5rem;
 
 }

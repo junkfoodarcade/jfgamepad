@@ -9,6 +9,7 @@ const Show = ({ when, children }) => when && children
 
 const App = () => {
   const [color,setColor] = React.useState('#663399');
+  const [pressed,setPressed] = React.useState('#FF0000');
   const gamepads: Gamepad[] = useGamepad() || [{ connected: false }]
   const isConnected = gamepads[0]?.connected || false
   const gp = gamepads[0]
@@ -20,8 +21,9 @@ const App = () => {
         <p>Press a button on the controller to begin</p>
       </Show>
       <Show when={!!isConnected}>
-        <ColorSelector initial={color} setValue={setColor} />
-          <Snackbox gamepad={gp} bg={color} />
+        <ColorSelector label="Controller" id="bg" initial={color} setValue={setColor} />
+        <ColorSelector label="Pressed" id="pressed" initial={pressed} setValue={setPressed} />
+        <Snackbox gamepad={gp} bg={color} pressed={pressed} />
       </Show>
       </main>
     </div>
