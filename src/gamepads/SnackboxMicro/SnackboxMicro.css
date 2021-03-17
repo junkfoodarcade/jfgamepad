@@ -1,0 +1,8 @@
+
+.snackboxmicro {
+    display:flex;
+    --button-size: 40px;
+    color: #666;
+    background-color: #333;
+  }
+

@@ -1,0 +1,27 @@
+
+.snackbox {
+    display:flex;
+    --button-size: 40px;
+    color: #666;
+    background-color: #333;
+  }
+
+  .rivet {
+    height: 15px;
+    width: 15px;
+    background-color: rgba(160, 144, 175, .8);
+    border-radius:50px;
+    position: absolute;
+    --percent-vert: 10%;
+    --percent-horz: 5%;
+    border: 2px solid #666;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:rotate(13deg);
+  }
+  .rivet.tl { top: var(--percent-vert); left:var(--percent-horz);  transform:rotate(13deg);}
+  .rivet.tr { top: var(--percent-vert); right: var(--percent-horz);  transform:rotate(67deg);}
+  .rivet.bl { bottom: var(--percent-vert); left: var(--percent-horz);  transform:rotate(32deg);}
+  .rivet.br { bottom: var(--percent-vert); right: var(--percent-horz);  }
+
