@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show component should match snapshot 1`] = `
+<div>
+  hi
+</div>
+`;
+
+exports[`Show component should not display (when is false) 1`] = `<div />`;

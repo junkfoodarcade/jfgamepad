@@ -19,24 +19,3 @@ export const xboxButtonNames = [
     'Next2Button',
     'Next3Button'
   ];
-  export const snackboxButtonNames = [
-    'K1',
-    'K2',
-    'P1',
-    'P2',
-    'P4',
-    'P3',
-    'K4',
-    'K3',
-    '8',
-    '',
-    '',
-    '',
-    '↑',
-    '↓',
-    '←',
-    '→',
-    '',
-    '',
-    ''
-  ];
