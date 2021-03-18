@@ -1,5 +1,15 @@
 
 .snackbox {
+    width: 600px;
+    height: 300px;
+    border-radius: 40px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    border: 2px solid black;
+    border-top-color: #666;
+    border-left-color: #666;
     display:flex;
     --button-size: 40px;
     color: #666;
@@ -25,3 +35,123 @@
   .rivet.bl { bottom: var(--percent-vert); left: var(--percent-horz);  transform:rotate(32deg);}
   .rivet.br { bottom: var(--percent-vert); right: var(--percent-horz);  }
 
+
+
+.sbc0b0 {
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.sbc0b1 {
+  top: 35%;
+  left: 54.5%;
+}
+
+.sbc0b2 {
+  top:31%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.sbc0b3 {
+  top: 16%;
+  left: 54.5%;
+}
+
+.sbc0b4 {
+  top: 30%;
+  left: 73%;
+  transform: translateY(-50%);
+}
+
+.sbc0b5 {
+  top: 16%;
+  left: 64%;
+}
+
+.sbc0b6 {
+  top:50%;
+  left: 73%;
+  transform: translateY(-50%);
+}
+
+.sbc0b7 {
+  top: 35%;
+  left: 64%;
+}
+
+.sbc0b8 {
+  top:1%;
+  left:30%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: calc(var(--button-size) * .3);
+  width: calc(var(--button-size) * .5);
+}
+
+.sbc0b12 {
+  top:65%;
+  left:50%;
+  transform:translateX(-50%);
+  height: 65px;
+  width: 65px;
+}
+.sbc0b13 {
+  top:24.5%;
+  left:28.5%;
+}
+.sbc0b14 {
+  top:19%;
+  left:19.5%;
+}
+.sbc0b15 {
+  top:31%;
+  left:37.5%;
+}
+
+
+/* top */
+
+.sbc0b9 {
+  top:1%;
+  left:20%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: calc(var(--button-size) * .3);
+  width: calc(var(--button-size) * .5);
+}
+.sbc0b10 {
+  top:1%;
+  left:25%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: calc(var(--button-size) * .3);
+  width: calc(var(--button-size) * .5);
+}
+.sbc0b11 {
+  top:1%;
+  left:30%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: calc(var(--button-size) * .3);
+  width: calc(var(--button-size) * .5);
+}
+
+
+.sbc0b16 {
+  top:1%;
+  left:35%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: calc(var(--button-size) * .3);
+  width: calc(var(--button-size) * .5);
+}
+.sbc0b17 {
+  top:1%;
+  left:40%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: calc(var(--button-size) * .3);
+  width: calc(var(--button-size) * .5);
+}

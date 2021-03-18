@@ -3,7 +3,6 @@ import './Button.css';
 
 type ButtonProps = {
   index: number
-  controllerIndex: number
   className?: string
   pressed?: boolean
   name: string
@@ -11,15 +10,14 @@ type ButtonProps = {
 
 export const Button = ({
   index,
-  controllerIndex,
   className = '',
   pressed = false,
   name,
 }: ButtonProps) => {
-  const classes = `button${className ? ' ' + className : ''}${pressed ? ' pressed' : ''}`
-  const id = `c${controllerIndex}b${index}`
+  const id = `b${index}`
+  const classes = `button${className ? ' ' + className : ''}${pressed ? ' pressed' : ''} ${id}`
   return (
-    <span className={classes} id={id}>
+    <span className={classes}>
       {name}
     </span>
   )
