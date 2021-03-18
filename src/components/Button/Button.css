@@ -13,7 +13,4 @@
     transition-property: background-color;
     transition: 150ms linear;
 }
-  .pressed {
-    background-color: rgb(14, 156, 250);
-  }
 

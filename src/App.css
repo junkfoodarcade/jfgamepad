@@ -31,3 +31,15 @@ p {
   font-size:2rem;
   border-radius: 10px;
 }
+
+#highlight {
+  position:absolute;
+  top: 5rem;
+  right:5rem;
+  display:flex;
+  flex-direction:column;
+}
+#highlight-input {
+  width: 6rem;
+  height:3rem;
+}

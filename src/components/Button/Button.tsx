@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import './Button.css';
 
 type ButtonProps = {
@@ -6,6 +6,7 @@ type ButtonProps = {
   className?: string
   pressed?: boolean
   name: string
+  color: string;
 }
 
 export const Button = ({
@@ -13,11 +14,23 @@ export const Button = ({
   className = '',
   pressed = false,
   name,
+  color,
 }: ButtonProps) => {
   const id = `b${index}`
-  const classes = `button${className ? ' ' + className : ''}${pressed ? ' pressed' : ''} ${id}`
+  const arrows= ['↑', '↓', '←',  '→'];
+  let arrow='';
+  if(arrows.includes(name)) {
+    arrow = (name === '↑') ? 'up'
+          : (name === '↓') ? 'down'
+          : (name === '←') ? 'left'
+          : 'right';
+  }
+  const classes = `button${className ? ' ' + className : ''}${pressed ? ' pressed' : ''} ${id.toLowerCase()} ${arrow? arrow : name.toLowerCase()}`
+  const styles = pressed ? {
+    backgroundColor: color
+  } : {};
   return (
-    <span className={classes}>
+    <span className={classes} style={styles}>
       {name}
     </span>
   )

@@ -3,9 +3,9 @@
 
     --width: 800px;
     --height: 400px;
-    --button-size: calc( var(--width) * .05);
+    --button-size: calc( var(--width) * .075);
     --button-size-lg: calc( var(--button-size) * 1.625);
-    --button-size-sm: calc( var(--button-size) * .3);
+    --button-size-sm: calc( var(--button-size) * .2);
     --blur: calc(var(--button-size) / 4);
     --displacement:  calc(var(--blur) / 2 );
     --font-size:1rem;
@@ -28,78 +28,74 @@
     color: var(--light);
     background-color: var(--nuetral);
 }
-
-.snackboxmicro .b0 {
-  top:50%;
-  left:50%;
+.snackboxmicro .button {
   transform: translate(-50%,-50%);
 }
 
-.snackboxmicro .b1 {
-  top: 35%;
-  left: 54.5%;
-}
-
-.snackboxmicro .b2 {
-  top:35%;
+.snackboxmicro .p1 {
+  top:30%;
   left:50%;
-  transform: translate(-50%,-50%);
 }
-
-.snackboxmicro .b3 {
-  top: 20%;
-  left: 54.5%;
-}
-
-.snackboxmicro .b4 {
-  top: 30%;
-  left: 73%;
-  transform: translateY(-50%);
-}
-
-.snackboxmicro .b5 {
-  top: 20%;
-  left: 54%;
-}
-
-.snackboxmicro .b6 {
+.snackboxmicro .k1 {
   top:50%;
-  left: 73%;
-  transform: translateY(-50%);
+  left:50%;
 }
 
-.snackboxmicro .b7 {
-  top: 35%;
-  left: 64%;
+.snackboxmicro .p2 {
+  top: 25%;
+  left: 60%;
+}
+.snackboxmicro .k2 {
+  top: 45%;
+  left: 60%;
 }
 
-.snackboxmicro .b12 {
+.snackboxmicro .p3 {
+  top: 25%;
+  left: 70%;
+}
+.snackboxmicro .k3 {
+  top: 45%;
+  left: 70%;
+}
+
+.snackboxmicro .p4 {
+  top:30%;
+  left: 80%;
+}
+.snackboxmicro .k4 {
+  top: 50%;
+  left: 80%;
+}
+
+
+.snackboxmicro .left {
+  top:25%;
+  left:21.5%;
+}
+.snackboxmicro .down {
+  top:28%;
+  left: 32%;
+}
+.snackboxmicro .right {
+  top:40%;
+  left:41%;
+}
+
+.snackboxmicro .up{
   top:65%;
   left:50%;
   transform:translateX(-50%);
   height: var(--button-size-lg);
   width: var(--button-size-lg);
 }
-.snackboxmicro .b13 {
-  top:24.5%;
-  left:28.5%;
-}
-.snackboxmicro .b14 {
-  top:19%;
-  left:19.5%;
-}
-.snackboxmicro .b15 {
-  top:31%;
-  left:37.5%;
-}
-
 
 /* top */
 
 
 .snackboxmicro .b8 {
   top:6%;
-  left:10%;
+  left:12%;
   height: var(--button-size-sm);
   width: var(--button-size-sm);
   font-size:var(--fs-sm);
@@ -114,14 +110,14 @@
 }
 .snackboxmicro .b10 {
   top:6%;
-  left:25%;
+  left:23%;
   height: var(--button-size-sm);
   width: var(--button-size-sm);
   font-size:var(--fs-sm);
 }
 .snackboxmicro .b11 {
   top:6%;
-  left:30%;
+  left:35%;
   height: var(--button-size-sm);
   width: var(--button-size-sm);
   font-size:var(--fs-sm);
@@ -129,7 +125,7 @@
 
 .snackboxmicro .b16 {
   top:6%;
-  left:35%;
+  left:38%;
   height: var(--button-size-sm);
   width: var(--button-size-sm);
   font-size:var(--fs-sm);
