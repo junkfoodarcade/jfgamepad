@@ -17,7 +17,7 @@ export const Button = ({
   color,
 }: ButtonProps) => {
   const id = `b${index}`
-  const arrows= ['↑', '↓', '←',  '→'];
+  const arrows= ['↑','↓','←','→'];
   let arrow='';
   if(arrows.includes(name)) {
     arrow = (name === '↑') ? 'up'
@@ -25,7 +25,9 @@ export const Button = ({
           : (name === '←') ? 'left'
           : 'right';
   }
-  const classes = `button${className ? ' ' + className : ''}${pressed ? ' pressed' : ''} ${id.toLowerCase()} ${arrow? arrow : name.toLowerCase()}`
+
+  const classes = `button${className ? ' ' + className : ''}${pressed ? ' pressed' : ''} ${id.toLowerCase()}`
+   //${arrow? arrow : name.toLowerCase()}
   const styles = pressed ? {
     backgroundColor: color
   } : {};
