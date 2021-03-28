@@ -5,24 +5,23 @@ import {SnackboxMicro} from './gamepads'
 
 import './App.css'
 
-const defaultOptions =  [{ connected: false }];
+const defaultOptions =  { connected: false, pressed:[], length:0 };
 
 const App = () => {
 
   const [color, setColor] = useState('#5bbcff');
-  const gamepads: Gamepad[] = useGamepad() ||defaultOptions
-  const isConnected = gamepads[0]?.connected || false
-  const gp = gamepads[0]
+  const {connected,pressed, length} = useGamepad() ||defaultOptions;
+
 
   return (
     <div className="App">
         <main>
-      <Show when={!isConnected}>
+      <Show when={!connected}>
         <p>Press a button on the controller to begin</p>
       </Show>
-      <Show when={!!isConnected}>
+      <Show when={!!connected}>
         <ColorSelector id="highlight" label="Highlight" initial={color} setValue={setColor} />
-        <SnackboxMicro gamepad={gp} color={color} />
+        <SnackboxMicro totalButtons={length} pressed={pressed} color={color} />
       </Show>
       </main>
     </div>

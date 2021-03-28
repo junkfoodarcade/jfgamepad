@@ -5,17 +5,21 @@ import { Button } from '../../components'
 import './SnackboxMicro.css';
 
 export type SnackboxMicroProps = {
-    gamepad: Gamepad;
+    totalButtons: number;
+    pressed: number[];
     color: string;
 }
+export const SnackboxMicro = ({totalButtons,pressed,color}) =>{
 
-export const SnackboxMicro = ({gamepad,color}) =>{
-    const buttons = gamepad.buttons || [];
-    const index= gamepad.index|| 0;
+    let buttons = [];
+    for(let i=0; i< totalButtons;i++) {
+        buttons.push(i)
+    }
     return (
-    <section className="controller snackboxmicro" data-id={index}>
-        {buttons && buttons.map((btn, idx) =>
-            <Button key={idx} index={idx} pressed={btn.pressed} name={ButtonNames[idx]} color={color} />
-        )}
+    <section className="controller snackboxmicro" data-id={0}>
+        {buttons.map(btn => {
+            const name=ButtonNames[btn];
+            return name && (<Button key={btn} index={btn} pressed={pressed.includes(btn)} name={name} color={color} />)
+        })}
     </section>);
 }
