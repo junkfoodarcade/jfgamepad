@@ -11,13 +11,13 @@ exports.handler = (event) => {
   console.log(d);
   const item = {
     data: {
-      username: d[0],
-      name: d[1]
+      _createdAt: d[0],
+      btn: d[1]
     }
   }
   return client
     .query(
-      q.Create(q.Collection('user'), item)
+      q.Create(q.Collection('entries'), item)
     )
     .then((response) => {
       console.log('success')
