@@ -9,7 +9,7 @@ const client = new faunadb.Client({
 exports.handler = (event) => {
   return client
     .query(
-      q.Create(q.Collection('entries'), {
+      q.Create(q.Collection('user'), {
         data: event.queryStringParameters.d,
       })
     )
