@@ -8,12 +8,16 @@ const client = new faunadb.Client({
 
 exports.handler = (event) => {
   const d = event.queryStringParameters.d.split('|');
+  console.log(d);
+  const item = {
+    data: {
+      username: d[0],
+      name: d[1]
+    }
+  }
   return client
     .query(
-      q.Create(q.Collection('user'), {
-        name: d[0],
-        username: d[1],
-      })
+      q.Create(q.Collection('user'), item)
     )
     .then((response) => {
       console.log('success')
