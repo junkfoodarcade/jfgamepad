@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: orange;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -34,8 +34,8 @@ p {
 
 #highlight {
   position:absolute;
-  top: 5rem;
-  right:5rem;
+  top: 15rem;
+  left:2rem;
   display:flex;
   flex-direction:column;
 }
