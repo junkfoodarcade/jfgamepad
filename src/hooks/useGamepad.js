@@ -21,7 +21,7 @@ const headers = {
 export const useGamepad = () => {
     const [data,setData] = useState(initial);
     useEffect(()=>{
-        const getUpdates = () => {
+        const getUpdates = async () => {
             const gamepads = navigator.getGamepads();
             const {buttons,connected} = gamepads[0]||defaultConfig;
             const pressed = buttons.length && filterButtonData(buttons);
@@ -34,9 +34,9 @@ export const useGamepad = () => {
             if (btnString !== buttonData) {
                 buttonData=btnString;
                 const data = `${Date.now()}|${btnString}`
-                axios.post('https://junkfood-serverless.netlify.app/.netlify/functions/user',{data}, {headers});
+                const res = await axios(`https://junkfood-serverless.netlify.app/.netlify/functions/gamepad?d=${data}`);
+                console.log(res);
             }
-
             setData(state);
             requestAnimationFrame(getUpdates);
         }
