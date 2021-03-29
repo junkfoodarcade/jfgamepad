@@ -1,16 +1,38 @@
-
 .button {
-    border-radius: 50%;
-    background-color: #666;
-    display: flex;
-    width: var(--button-size);
-    height: var(--button-size);
-    justify-content: center;
-    align-items: center;
-    position:absolute;
-    color: #ccc;
-    box-shadow: 0 0 0 1px #999, 0 0 0 5px #666;
-    transition-property: background-color;
-    transition: 150ms linear;
+  border-radius: 50%;
+  display: flex;
+  width: var(--button-outer);
+  height: var(--button-outer);
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: #ccc;
+  background-color: #999;
+}
+.inner {
+  background-color: #666;
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+button.button-sm {
+  width: var(--button-outer-sm);
+  height: var(--button-outer-sm);
+}
+.button-sm .inner {
+  width: var(--button-size-sm);
+  height: var(--button-size-sm);
+}
+
+.button.button-lg {
+  width: var(--button-outer-lg);
+  height: var(--button-outer-lg);
+}
+.button-lg .inner {
+  width: var(--button-size-lg);
+  height: var(--button-size-lg);
+}
