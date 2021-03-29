@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import './Button.css'
 
 type ButtonProps = {
@@ -7,10 +7,10 @@ type ButtonProps = {
   pressed?: boolean
   name: string
   color: string
-  size: 'sm' | 'med' | 'lg'
+  size: 'sm' | 'md' | 'lg'
 }
 
-export const Button = ({ index, className = '', pressed = false, name, color, size = 'med' }: ButtonProps) => {
+export const Button = ({ index, className = '', pressed = false, name, color, size = 'md' }: ButtonProps) => {
   const id = `b${index}`
   const arrows = ['↑', '↓', '←', '→']
   let arrow = ''

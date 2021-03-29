@@ -1,26 +1,24 @@
-import React from 'react';
-import ButtonNames from './SnackboxMicroMappings';
+import React from 'react'
+import ButtonNames from './SnackboxMicroMappings'
 import { Button } from '../../components'
 
-import './SnackboxMicro.css';
+import './SnackboxMicro.css'
 
 export type SnackboxMicroProps = {
-    totalButtons: number;
-    pressed: number[];
-    color: string;
+  buttons: string
+  color: string
 }
-export const SnackboxMicro = ({totalButtons,pressed,color}) =>{
-
-    let buttons = [];
-    for(let i=0; i< totalButtons;i++) {
-        buttons.push(i)
-    }
-    return (
+export const SnackboxMicro = ({ buttons = '0000000000000000', color }) => {
+  const btns = buttons.split('').map(parseInt)
+  return (
     <section className="controller snackboxmicro" data-id={0}>
-        {buttons.map(btn => {
-            const name=ButtonNames[btn];
-            const size= btn === 12 ?'lg': 'med';
-            return name && (<Button key={btn} index={btn} pressed={pressed.includes(btn)} name={name} color={color} size={size} />)
-        })}
-    </section>);
+      {btns.map((btn, index) => {
+        const name = ButtonNames[index]
+        const size = index === 12 ? 'lg' : 'md'
+        return (
+          name && <Button key={name + index} index={index} pressed={btn === 1} name={name} color={color} size={size} />
+        )
+      })}
+    </section>
+  )
 }

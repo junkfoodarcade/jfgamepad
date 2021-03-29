@@ -8,7 +8,7 @@ const defaultOptions = { connected: false, pressed: [], length: 0 }
 
 const App = () => {
   const [color, setColor] = useState('#5bbcff')
-  const { connected, pressed, length } = useGamepad() || defaultOptions
+  const { buttons, connected } = useGamepad() || defaultOptions
 
   return (
     <div className="App">
@@ -21,7 +21,7 @@ const App = () => {
         </Show>
         <Show when={!!connected}>
           <ColorSelector id="highlight" label="Button Highlight" initial={color} setValue={setColor} />
-          <SnackboxMicro totalButtons={length} pressed={pressed} color={color} />
+          <SnackboxMicro buttons={buttons} color={color} />
         </Show>
       </main>
     </div>
