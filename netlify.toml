@@ -1,0 +1,17 @@
+
+[dev]
+  framework = "#custom"
+  command = "npm start" # Command to start your dev server
+  targetPort = 3000
+  port = 8888 # The port that the netlify dev will be accessible on
+  publish = "build"
+
+[build]
+  command = "npm run build"
+  functions = "functions"
+  publish = "build"
+
+[[redirects]]
+  from='/api/gp'
+  to='/.netlify/functions/gp'
+  status= 200

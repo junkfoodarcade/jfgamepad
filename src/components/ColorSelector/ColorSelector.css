@@ -3,3 +3,8 @@
     min-height:3rem;
     font-size: 2rem;
   }
+  .color-selector label {
+    font-weight:bold;
+    text-align:center;
+
+  }

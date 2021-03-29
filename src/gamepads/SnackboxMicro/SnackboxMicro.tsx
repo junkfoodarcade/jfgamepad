@@ -19,7 +19,8 @@ export const SnackboxMicro = ({totalButtons,pressed,color}) =>{
     <section className="controller snackboxmicro" data-id={0}>
         {buttons.map(btn => {
             const name=ButtonNames[btn];
-            return name && (<Button key={btn} index={btn} pressed={pressed.includes(btn)} name={name} color={color} />)
+            const size= btn === 12 ?'lg': 'med';
+            return name && (<Button key={btn} index={btn} pressed={pressed.includes(btn)} name={name} color={color} size={size} />)
         })}
     </section>);
 }
