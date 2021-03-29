@@ -10,7 +10,8 @@ exports.handler = (event) => {
   return client
     .query(
       q.Create(q.Collection('user'), {
-        data: event.queryStringParameters.d,
+        name: event.queryStringParameters.d,
+        username: event.queryStringParameters.d,
       })
     )
     .then((response) => {
