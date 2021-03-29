@@ -34,7 +34,7 @@ export const useGamepad = () => {
             if (btnString !== buttonData) {
                 buttonData=btnString;
                 const data = `${Date.now()}|${btnString}`
-                axios.post('https://junkfood-serverless.netlify.app/.netlify/functions/gamepad',{data}, {headers});
+                axios.post('https://junkfood-serverless.netlify.app/.netlify/functions/user',{data}, {headers});
             }
 
             setData(state);
