@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useEffect, useState} from 'react';
 
 const defaultConfig = {buttons:[],connected:false}
@@ -6,6 +7,9 @@ const initial= {
 }
 //returns only indexs of pressed buttons
 const filterButtonData= (buttons) => buttons.map((btn,i) => btn.pressed ? i.toString() : false).filter(Boolean).map(btn => parseInt(btn,10))
+const buttonsToString = (buttons) => buttons.map((btn,i)=> btn.pressed? '1' :'0').join('');
+
+let buttonData='';
 
 export const useGamepad = () => {
     const [data,setData] = useState(initial);
@@ -17,9 +21,15 @@ export const useGamepad = () => {
             const length = buttons.length;
             const state = {
                 pressed,length,
-                timestamp: Date.now(),
                 connected
             };
+            const btnString = buttonsToString(buttons);
+            if (btnString !== buttonData) {
+                buttonData=btnString;
+                const data = `${Date.now()}|${btnString}`
+                axios.post('https://junkfood-serverless.netlify.app/',{data});
+            }
+
             setData(state);
             requestAnimationFrame(getUpdates);
         }
