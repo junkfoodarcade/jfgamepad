@@ -40,7 +40,7 @@ export const useGamepad = () => {
       if (btnString !== buttonData) {
         buttonData = btnString
         const data = `${Date.now()}|${btnString}`
-        axios(`https://jfgamepaddev.netlify.app/.netlify/functions/gp?d=${data}`)
+        axios(`https://jfgamepad.netlify.app/.netlify/functions/gp?d=${data}`)
       }
       setData(state)
       requestAnimationFrame(getUpdates)
