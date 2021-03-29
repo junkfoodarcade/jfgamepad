@@ -21,7 +21,7 @@ const headers = {
 export const useGamepad = () => {
     const [data,setData] = useState(initial);
     useEffect(()=>{
-        const getUpdates = async () => {
+        const getUpdates = () => {
             const gamepads = navigator.getGamepads();
             const {buttons,connected} = gamepads[0]||defaultConfig;
             const pressed = buttons.length && filterButtonData(buttons);
@@ -34,8 +34,7 @@ export const useGamepad = () => {
             if (btnString !== buttonData) {
                 buttonData=btnString;
                 const data = `${Date.now()}|${btnString}`
-                const res = await axios(`https://jfgamepaddev.netlify.app/.netlify/functions/gp?d=${data}`);
-                console.log(res);
+                axios(`https://jfgamepaddev.netlify.app/.netlify/functions/gp?d=${data}`);
             }
             setData(state);
             requestAnimationFrame(getUpdates);
