@@ -6,13 +6,15 @@ const initial = {
   pressed: [],
   connected: false,
 }
-//returns only indexs of pressed buttons
-const filterButtonData = (buttons) =>
-  buttons
-    .map((btn, i) => (btn.pressed ? i.toString() : false))
-    .filter(Boolean)
-    .map((btn) => parseInt(btn, 10))
+
 const buttonsToString = (buttons) => buttons.map((btn, i) => (btn.pressed ? '1' : '0')).join('')
+
+const str2b = (str) => parseInt(str, 2)
+
+const b2str = (str) => {
+  let updated = str.toString(2)
+  return ('00000000000000000' + updated).slice(-17)
+}
 
 let buttonData = ''
 
@@ -36,7 +38,7 @@ export const useGamepad = () => {
           connected,
           buttons: btnString,
         }
-        //axios(`https://jfgamepad.netlify.app/.netlify/functions/gp?d=${`${Date.now()}|${btnString}`}`)
+        axios(`https://jfgamepad.netlify.app/.netlify/functions/gp?d=${`${Date.now()}|${str2b(btnString)}`}`)
         setData(state)
       }
       requestAnimationFrame(getUpdates)
