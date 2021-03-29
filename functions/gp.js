@@ -11,7 +11,7 @@ exports.handler = (event) => {
   console.log(d);
   const item = {
     data: {
-      _createdAt: d[0],
+      _createdAt: d[0] -0,
       btn: d[1]
     }
   }
