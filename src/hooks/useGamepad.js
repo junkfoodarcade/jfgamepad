@@ -11,6 +11,13 @@ const buttonsToString = (buttons) => buttons.map((btn,i)=> btn.pressed? '1' :'0'
 
 let buttonData='';
 
+const headers = {
+    "content-type": "text/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+};
+
 export const useGamepad = () => {
     const [data,setData] = useState(initial);
     useEffect(()=>{
@@ -27,7 +34,7 @@ export const useGamepad = () => {
             if (btnString !== buttonData) {
                 buttonData=btnString;
                 const data = `${Date.now()}|${btnString}`
-                axios.post('https://junkfood-serverless.netlify.app/.netlify/functions/gamepad',{data});
+                axios.post('https://junkfood-serverless.netlify.app/.netlify/functions/gamepad',{data}, {headers});
             }
 
             setData(state);
