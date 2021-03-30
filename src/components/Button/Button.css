@@ -8,6 +8,7 @@
   position: absolute;
   color: #ccc;
   background-color: #999;
+  transition: background-color 150ms ease-in-out;
 }
 .inner {
   background-color: #666;

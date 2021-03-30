@@ -1,0 +1,20 @@
+.record button {
+    width: 4rem;
+    height:4rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    background-color:rgb(78, 78, 78);
+    border:2px solid #999;
+    background: linear-gradient(to bottom,  #ff8080 0%,#cf0404 100%);
+
+    position: absolute;
+    top: 55%;
+    left: 3.5%;
+}
+.record.isRecording button {
+    box-shadow: 0 0 3px 2px red;
+    background: linear-gradient(to bottom,  #ff0000 0%,#ff3019 100%);
+}
+.record button:focus {
+    outline:0;
+}

@@ -1,14 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGamepad } from './hooks/useGamepad'
-import { ColorSelector, Show } from './components'
+import { ColorSelector, Show, Record } from './components'
 import { SnackboxMicro } from './gamepads'
+import axios from'axios'
+import {getUrl} from './utils'
 import './App.css'
 
 const defaultOptions = { connected: false, pressed: [], length: 0 }
 
+
+
 const App = () => {
+  const [isRecording, setIsRecording] = useState(false);
   const [color, setColor] = useState('#5bbcff')
-  const { buttons, connected } = useGamepad() || defaultOptions
+  const {buttons, connected } = useGamepad() || defaultOptions;
+  const [buttondata, setButtonData] = useState(buttons);
+
+  useEffect(()=>{
+    if (buttons !== buttondata) {
+      if (isRecording) {
+        axios(getUrl(buttons))
+      }
+      setButtonData(buttons);
+    }
+  },[isRecording,buttons,buttondata])
 
   return (
     <div className="App">
@@ -20,6 +35,7 @@ const App = () => {
           <p>Press a button on the controller to begin</p>
         </Show>
         <Show when={!!connected}>
+          <Record isRecording={isRecording} setIsRecording={setIsRecording}/>
           <ColorSelector id="highlight" label="Button Highlight" initial={color} setValue={setColor} />
           <SnackboxMicro buttons={buttons} color={color} />
         </Show>
