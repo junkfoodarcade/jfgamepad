@@ -1,6 +1,6 @@
   .color-selector input {
-    min-width: 4rem;
-    min-height:3rem;
+    width: 4rem;
+    height:3rem;
     font-size: 2rem;
   }
   .color-selector label {
