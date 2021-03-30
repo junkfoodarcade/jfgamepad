@@ -8,13 +8,18 @@ import './App.css'
 
 const defaultOptions = { connected: false, pressed: [], length: 0 }
 
-
+const localStorageKey = 'jfgamepad-highlight';
 
 const App = () => {
   const [isRecording, setIsRecording] = useState(false);
-  const [color, setColor] = useState('#5bbcff')
+  const [color, setColor] = useState('#bde3ff')
   const {buttons, connected } = useGamepad() || defaultOptions;
   const [buttondata, setButtonData] = useState(buttons);
+
+  useEffect(()=>{
+    const c = localStorage.getItem(localStorageKey) ||'#bde3ff';
+    setColor(c);
+  },[])
 
   useEffect(()=>{
     if (buttons !== buttondata) {
@@ -24,6 +29,10 @@ const App = () => {
       setButtonData(buttons);
     }
   },[isRecording,buttons,buttondata])
+
+  useEffect(()=>{
+    localStorage.setItem(localStorageKey,color);
+  },[color]);
 
   return (
     <div className="App">
