@@ -6,6 +6,7 @@ exports.handler = (event) => {
   client
     .query(q.Paginate(q.Match(q.Index('session_ind'), d)))
     .then((res) => {
+      console.log(JSON.stringify(res))
       return {
         statusCode: 200,
        res
