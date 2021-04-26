@@ -14,7 +14,7 @@ exports.handler = (event) => {
     .then((res) => {
        return {
          statusCode:200,
-         data: JSON.stringify(res.data)
+         body: JSON.stringify(res.data)
     }})
     .catch((err) => {
       return {
