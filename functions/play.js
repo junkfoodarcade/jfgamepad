@@ -7,9 +7,9 @@ exports.handler = (event) => {
     ({
       statusCode: 200,
       res,
-    }.catch((err) => ({
+    }).catch((err) => ({
       statusCode: 400,
       err,
-    })))
+    }))
   )
 }
