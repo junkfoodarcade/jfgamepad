@@ -4,7 +4,15 @@ exports.handler = (event) => {
   const d = event.queryStringParameters.d
 
   client
-    .query(q.Map(q.Paginate(q.Match(q.Index('session_ind'), d))))
+    .query(
+      q.Map(
+        q.Paginate(
+          q.Match(
+            q.Index('session_ind'), d
+          )
+        ),
+        Lambda("X", Get(Var("X")))
+      ))
     .then((res) => {
       console.log(JSON.stringify(res))
       return {
