@@ -13,10 +13,8 @@ exports.handler = (event) => {
       )
     .then((res) => {
       console.log(JSON.stringify(res.data));
-       return {
-         statusCode:200,
-         body: JSON.stringify(res.data)
-    }})
+       return JSON.stringify(res.data)
+    })
     .catch((err) => {
       return {
         statusCode: 400,
