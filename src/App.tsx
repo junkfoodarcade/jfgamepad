@@ -13,7 +13,7 @@ const localStorageKey = 'jfgamepad-highlight';
 const App = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [color, setColor] = useState('#bde3ff')
-  const {buttons, connected } = useGamepad() || defaultOptions;
+  const {buttons, connected, timestamp } = useGamepad() || defaultOptions;
   const [buttondata, setButtonData] = useState(buttons);
   const [sessionId,setSessionId] = useState('');
 
@@ -25,7 +25,7 @@ const App = () => {
   useEffect(()=>{
     if (buttons !== buttondata) {
       if (isRecording) {
-        axios(sendUrl(buttons,sessionId))
+        axios(sendUrl(buttons,sessionId,Date.now()))
       }
       setButtonData(buttons);
     }

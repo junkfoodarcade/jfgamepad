@@ -13,13 +13,14 @@ export const useGamepad = () => {
   useEffect(() => {
     const getUpdates = () => {
       const gamepads = navigator.getGamepads()
-      const { buttons, connected } = gamepads[0] || defaultConfig
+      const { buttons, connected,  timestamp } = gamepads[0] || defaultConfig
       const btnString = buttonsToString(buttons)
       if (btnString !== buttonData) {
         buttonData=btnString;
         const state = {
           connected,
           buttons: btnString,
+          timestamp
         }
         setData(state)
       }

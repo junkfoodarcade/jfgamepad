@@ -1,7 +1,7 @@
 //const BASE_URL='https://jfgamepad.netlify.app/.netlify/functions/';
 const BASE_URL='https://jfgamepaddev.netlify.app/.netlify/functions/';
 
-export const sendUrl = (btn:string,sessionId:string) => `${BASE_URL}gp?d=${str2b(btn)}|${sessionId}}`
+export const sendUrl = (btn:string,sid:string, ts:number) => `${BASE_URL}gp?d=${ts}|${str2b(btn)}|${sid}}`
 
 export const str2b = (str:string) => parseInt(str, 2)
 
