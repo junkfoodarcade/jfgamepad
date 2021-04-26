@@ -2,6 +2,8 @@ const BASE_URL = 'https://jfgamepaddev.netlify.app/.netlify/functions/'
 
 export const sendUrl = (btn, sid, ts) => `${BASE_URL}gp?d=${ts}|${str2b(btn)}|${sid}`
 
+export const playUrl = (sid) => `${BASE_URL}play?d=${sid}`
+
 export const str2b = (str) => parseInt(str, 2)
 
 export const b2str = (str) => {

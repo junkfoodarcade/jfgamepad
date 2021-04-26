@@ -1,15 +1,20 @@
-const { query, client } = require('../config/fauna')
+const { q, client } = require('../config/fauna')
 
 exports.handler = (event) => {
   const d = event.queryStringParameters.d
 
-  client.query(query.Get(query.Ref(query.Collection('entries'), d))).then((res) =>
-    ({
-      statusCode: 200,
-      res,
-    }).catch((err) => ({
-      statusCode: 400,
-      err,
-    }))
-  )
+  client
+    .query(q.Paginate(q.Match(q.Index('session_ind'), d)))
+    .then((res) => {
+      return {
+        statusCode: 200,
+        res,
+      }
+    })
+    .catch((err) => {
+      return {
+        statusCode: 400,
+        err,
+      }
+    })
 }

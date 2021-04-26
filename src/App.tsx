@@ -3,7 +3,7 @@ import { useGamepad } from './hooks/useGamepad'
 import { ColorSelector, Show, Record } from './components'
 import { SnackboxMicro } from './gamepads'
 import axios from'axios'
-import {sendUrl} from './utils'
+import {sendUrl,playUrl} from './utils'
 import './App.css'
 
 const defaultOptions = { connected: false, pressed: [], length: 0 }
@@ -35,6 +35,11 @@ const App = () => {
     localStorage.setItem(localStorageKey,color);
   },[color]);
 
+  const handlePlay= () => {
+    const res = axios(playUrl(sessionId));
+    console.log(res);
+  }
+
   return (
     <div className="App">
       <h1>
@@ -48,6 +53,7 @@ const App = () => {
           <Record isRecording={isRecording} setIsRecording={setIsRecording} setSessionId={setSessionId}/>
           <ColorSelector id="highlight" label="Button Highlight" initial={color} setValue={setColor} />
           <SnackboxMicro buttons={buttons} color={color} />
+          <button onClick={handlePlay}>Play</button>
         </Show>
       </main>
     </div>

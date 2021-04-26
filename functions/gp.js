@@ -1,4 +1,4 @@
-const { query, client } = require('../config/fauna')
+const { q, client } = require('../config/fauna')
 
 exports.handler = (event) => {
   const d = event.queryStringParameters.d.split('|')
@@ -10,7 +10,7 @@ exports.handler = (event) => {
     },
   }
   return client
-    .query(query.Create(query.Collection('entries'), item))
+    .query(q.Create(q.Collection('entries'), item))
     .then((response) => {
       return {
         statusCode: 200,
