@@ -1,4 +1,4 @@
-const { query, client } = require('../db/fauna')
+const { query, client } = require('../config/fauna')
 
 exports.handler = (event) => {
   const d = event.queryStringParameters.d
