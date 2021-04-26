@@ -3,7 +3,7 @@ import { useGamepad } from './hooks/useGamepad'
 import { ColorSelector, Show, Record } from './components'
 import { SnackboxMicro } from './gamepads'
 import axios from'axios'
-import {getUrl} from './utils'
+import {sendUrl} from './utils'
 import './App.css'
 
 const defaultOptions = { connected: false, pressed: [], length: 0 }
@@ -15,6 +15,7 @@ const App = () => {
   const [color, setColor] = useState('#bde3ff')
   const {buttons, connected } = useGamepad() || defaultOptions;
   const [buttondata, setButtonData] = useState(buttons);
+  const [sessionId,setSessionId] = useState('');
 
   useEffect(()=>{
     const c = localStorage.getItem(localStorageKey) ||'#bde3ff';
@@ -24,7 +25,7 @@ const App = () => {
   useEffect(()=>{
     if (buttons !== buttondata) {
       if (isRecording) {
-        axios(getUrl(buttons))
+        axios(sendUrl(buttons,sessionId))
       }
       setButtonData(buttons);
     }
@@ -37,14 +38,14 @@ const App = () => {
   return (
     <div className="App">
       <h1>
-        <img src="./logo.png" alt="Junkfood Arcade Logo" width="200" style={{ float: 'left' }} />
+        <img src="./logo.png" alt="Junkfood Arcade Logo" width="200" className="logo" />
       </h1>
       <main>
         <Show when={!connected}>
           <p>Press a button on the controller to begin</p>
         </Show>
         <Show when={!!connected}>
-          <Record isRecording={isRecording} setIsRecording={setIsRecording}/>
+          <Record isRecording={isRecording} setIsRecording={setIsRecording} setSessionId={setSessionId}/>
           <ColorSelector id="highlight" label="Button Highlight" initial={color} setValue={setColor} />
           <SnackboxMicro buttons={buttons} color={color} />
         </Show>
