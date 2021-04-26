@@ -5,10 +5,10 @@ exports.handler = (event) => {
 
   client
     .query(q.Paginate(q.Match(q.Index('session_ind'), d)))
-    .then((res) => {
+    .then(({data}) => {
       return {
         statusCode: 200,
-        res,
+        data,
       }
     })
     .catch((err) => {
