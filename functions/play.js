@@ -12,6 +12,7 @@ exports.handler = (event) => {
         )
       )
     .then((res) => {
+      console.log(JSON.stringify(res.data));
        return {
          statusCode:200,
          body: JSON.stringify(res.data)
