@@ -7,7 +7,7 @@ exports.handler = async (event) => {
   console.log(res)
   console.log(JSON.stringify(res));
   return {
-    statusCode: 900,
+    statusCode: 200,
     body: res
   }
 }
