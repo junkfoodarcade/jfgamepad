@@ -4,16 +4,11 @@ exports.handler = (event) => {
   const d = event.queryStringParameters.d
 
   client
-    .query(
-        q.Paginate(
-          q.Match(
-            q.Index('session_ind'), d
-          )
-        )
-      )
+    .query(q.Map(q.Paginate(q.Match(q.Index('session_ind', d))),
+      q.Lambda('pilotRef', q.Get(q.Var('pilotRef')))))
     .then((res) => {
-      console.log(JSON.stringify(res.data));
-       return JSON.stringify(res.data)
+      console.log(JSON.stringify(res.data))
+      return JSON.stringify(res.data)
     })
     .catch((err) => {
       return {
