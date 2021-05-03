@@ -1,4 +1,4 @@
-const BASE_URL = 'https://jfgamepaddev.netlify.app/.netlify/functions/'
+const BASE_URL = '/.netlify/functions/'
 
 export const sendUrl = (btn, sid, ts) => `${BASE_URL}gp?d=${ts}|${str2b(btn)}|${sid}`
 
