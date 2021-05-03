@@ -1,4 +1,4 @@
-const { client } = require('../config/db')
+const client  = require('../config/db')
 
 exports.handler = async (event) => {
   const d = event.queryStringParameters.d
