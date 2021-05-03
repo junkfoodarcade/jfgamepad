@@ -2,12 +2,12 @@ const { client } = require('../config/db')
 
 exports.handler = async (event) => {
   const d = event.queryStringParameters.d
-  const [sid,btn,ts] = d.split('|');
+  const [ts,btn,sid] = d.split('|');
   await client.connect();
   const db =client.db('JunkFood');
   const data = db.collection('data');
   let item = {
-    "_createdAt": ts,
+    "_createdAt": new Date(ts),
     "sessionId": sid,
     btn
   };

@@ -1,6 +1,6 @@
 const BASE_URL = '/.netlify/functions/'
 
-export const sendUrl = (btn, sid, ts) => `${BASE_URL}gp?d=${ts}|${str2b(btn)}|${sid}`
+export const sendUrl = (btn, sid, ts) => `${BASE_URL}record?d=${ts}|${str2b(btn)}|${sid}`
 
 export const playUrl = (sid) => `${BASE_URL}play?d=${sid}`
 
