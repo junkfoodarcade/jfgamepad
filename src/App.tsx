@@ -42,7 +42,9 @@ const App = () => {
     setReplay(data);
     for(let i=0,l=data.length;i<l;i++) {
       setTimeout(()=>{
-        setButtonData(b2str(data[i].btn))
+        const d = b2str(data[i].btn);
+        console.log(d);
+        setButtonData(d);
       },1000)
     }
   }
