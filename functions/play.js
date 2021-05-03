@@ -6,8 +6,8 @@ exports.handler = async (event) => {
     sessionId: sessionId,
   })
   const data = await cursor.toArray();
-  console.log(data);
   return {
     statusCode: 200,
+    body: JSON.stringify(data)
   }
 }
