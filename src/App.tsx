@@ -4,7 +4,7 @@ import { ColorSelector, Show, Record } from './components'
 import { SnackboxMicro } from './gamepads'
 import axios from 'axios'
 import { useGlobalState } from './store/store'
-import { sendUrl, playUrl } from './utils'
+import { sendUrl, playUrl, b2str } from './utils'
 import './App.css'
 
 const defaultOptions = { connected: false, pressed: [], length: 0 }
@@ -38,9 +38,13 @@ const App = () => {
   }, [color])
 
   const handlePlay = async () => {
-    const res = await axios(playUrl(sessionId))
-    console.log(res.data)
-    setReplay(res.data.body);
+    const {data} = await axios(playUrl(sessionId))
+    setReplay(data);
+    for(let i=0,l=data.length;i<l;i++) {
+      setTimeout(()=>{
+        setButtonData(b2str(data[i].btn))
+      },1000)
+    }
   }
 
   return (
