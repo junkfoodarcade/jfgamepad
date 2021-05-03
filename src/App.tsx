@@ -41,11 +41,9 @@ const App = () => {
     const {data} = await axios(playUrl(sessionId))
     const btndata = data.map(btn => b2str(btn.btn))
     setReplay(btndata);
-    for(let i=0,l=data.length;i<l;i++) {
+    for(let i=0,l=btndata.length;i<l;i++) {
       setTimeout(()=>{
-        const d = b2str(data[i].btn);
-        console.log(d);
-        setButtonData(d);
+        setButtonData(btndata[i]);
       },1000)
     }
   }
