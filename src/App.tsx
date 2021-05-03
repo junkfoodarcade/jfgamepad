@@ -39,7 +39,8 @@ const App = () => {
 
   const handlePlay = async () => {
     const {data} = await axios(playUrl(sessionId))
-    setReplay(data);
+    const btndata = data.map(btn => b2str(btn.btn))
+    setReplay(btndata);
     for(let i=0,l=data.length;i<l;i++) {
       setTimeout(()=>{
         const d = b2str(data[i].btn);
@@ -61,7 +62,7 @@ const App = () => {
         <Show when={!!connected}>
           <Record isRecording={isRecording} setIsRecording={setIsRecording} setSessionId={setSessionId} />
           <ColorSelector id="highlight" label="Button Highlight" initial={color} setValue={setColor} />
-          <SnackboxMicro buttons={buttons} color={color} />
+          <SnackboxMicro buttons={buttondata} color={color} />
           <button onClick={handlePlay}>Play</button>
         </Show>
       </main>
