@@ -5,7 +5,7 @@ exports.handler = async (event) => {
   const cursor = client.db('JunkFood').collection('data').find({
     sessionId: sessionId,
   })
-  const data = cursor.toArray();
+  const data = await cursor.toArray();
   console.log(data);
   return {
     statusCode: 200,
