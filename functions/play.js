@@ -1,12 +1,9 @@
-const client  = require('../config/db')
+import { connect, db } from '../config/db';
 
-exports.handler = async (event) => {
+export async function handler(event) {
   const sessionId = event.queryStringParameters.d
-  await client.connect();
-  const db =client.db('JunkFood');
-  const collection = db.collection('data');
-  const data = collection.find({sessionId:sessionId});
-    console.log(data);
+  await connect();
+  const data = db('JunkFood').collection('data').find({sessionId:sessionId})
   return {
     statusCode: 200,
     body: JSON.stringify(data)
