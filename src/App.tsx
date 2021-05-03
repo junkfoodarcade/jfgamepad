@@ -38,13 +38,16 @@ const App = () => {
   }, [color])
 
   const handlePlay = async () => {
-    const {data} = await axios(playUrl(sessionId))
-    const btndata = data.map(btn => b2str(btn.btn))
-    setReplay(btndata);
-    for(let i=0,l=btndata.length;i<l;i++) {
-      setTimeout(()=>{
-        setButtonData(btndata[i]);
-      },1000)
+    const { data } = await axios(playUrl(sessionId))
+    const btndata = data.map((btn) => b2str(btn.btn))
+    setReplay(btndata)
+    for (let i = 0, l = btndata.length; i < l; i++) {
+      const curr = btndata[i]
+      if (curr !== '0000000000000000') {
+        setTimeout(() => {
+          setButtonData(btndata[i])
+        }, 1000)
+      }
     }
   }
 
