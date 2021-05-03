@@ -12,6 +12,8 @@ exports.handler = async (event) => {
     btn
   };
   const b = await data.insertOne(item);
-  const myDoc = await data.findOne();
-  console.log(myDoc);
+  return {
+    statusCode: 200,
+    body: JSON.stringify(b)
+  }
 }
