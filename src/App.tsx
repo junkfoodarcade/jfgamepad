@@ -35,8 +35,8 @@ const App = () => {
     localStorage.setItem(localStorageKey,color);
   },[color]);
 
-  const handlePlay= () => {
-    const res = axios(playUrl(sessionId));
+  const handlePlay= async() => {
+    const res = await axios(playUrl(sessionId));
     console.log(res);
   }
 
