@@ -10,8 +10,10 @@ interface RecordProps {
 
 export const Record = ({ isRecording, setSessionId, setIsRecording }: RecordProps) => {
   const handleClick = () => {
+   if(isRecording!==true) {
+    setSessionId(v4());
+   }
    setIsRecording((prev:boolean) => !prev);
-   setSessionId(v4());
   }
   const text = isRecording ? 'Stop' : 'Record'
   const classes = `record${isRecording?' isRecording':''}`
