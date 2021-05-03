@@ -1,11 +1,11 @@
 const client  = require('../config/db')
 
 exports.handler = async (event) => {
-  const sid = event.queryStringParameters.d
+  const sessionId = event.queryStringParameters.d
   await client.connect();
   const db =client.db('JunkFood');
   const collection = db.collection('data');
-  const data = collection.find({sid});
+  const data = collection.find({sessionId:sessionId});
 
   return {
     statusCode: 200,
