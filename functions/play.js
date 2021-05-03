@@ -6,7 +6,7 @@ exports.handler = async (event) => {
   const db =client.db('JunkFood');
   const collection = db.collection('data');
   const data = collection.find({sessionId:sessionId});
-
+    console.log(data);
   return {
     statusCode: 200,
     body: JSON.stringify(data)
